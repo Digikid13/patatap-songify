@@ -1,24 +1,36 @@
 /*****
 Inputs:
-  Array should look like this:
-    [
-      ["e"],
-      ["o"],
-      ["e"],
-      ["o"]
-    ]
+  string:
+    Input is expected to be a string containg keys and commas.
+    e.g "w,,w,,w,,w,,"
+    This example is a 8 beat measure that looks like the following,
+    [W null W null W null W null]
+    This is the string that contains the song you wish to play.
+    
+    For a better example, please see the string located at the end of this file.
+  
+  bpm
+    (to-do)
+    Input is expected to be a number.
+    This will be the Beats per Minute of the song.
+  
+  beats
+    (to-do)
+    Input is expected to be a number.
+    This is how many beats per measure.
+    In the example above it is a 4 beat measure, which can be considered the standard.
 
 
 
 ******/
 
-function play(string, bpm, time) {
+function play(string, bpm, beats) {
   bpm = bpm || 128;
-  time = time || 1;
+  beats = beats || 1;
   var array = string.split(",");
   var alpha = "abcdefghijklmnopqrstuvwxyz";
   var keyObj = {};
-  var bps = bpm / 60 * 1000 * time;
+  var bps = bpm / 60 * 1000 * beats;
   var spot = 0;
 
   for (var i = 0; i < alpha.length; i++) {
